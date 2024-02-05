@@ -1,0 +1,10 @@
+FROM node:21
+
+RUN npm i -g nodemon
+RUN mkdir -p /home/learning-docker
+
+WORKDIR /home/learning-docker
+
+EXPOSE 3000
+
+CMD ["nodemon", "index.js"]

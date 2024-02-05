@@ -1,0 +1,22 @@
+version: "3.9"
+services:
+  learning-docker-app:
+    build: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongo-app
+  mongo-app:
+    image: mongo
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=joseb
+      - MONGO_INITDB_ROOT_PASSWORD=password
+    volumes:
+      - mongo-data:/data/db
+      # mysql:/var/lib/mysql
+      # postgres:/var/lib/postgresql/data
+
+volumes:
+  mongo-data:
